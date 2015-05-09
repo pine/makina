@@ -16,8 +16,16 @@ module Makina
         Skype::URI.open(@uri)
         @skype.wait_active
         wait_chat_focus
-
-        yield if chat_opened?
+        
+        if chat_opened?
+          if block_given?
+            yield
+          else
+            true
+          end
+        else
+          false
+        end
       end
 
       def send(message)
