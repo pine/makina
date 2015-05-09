@@ -25,7 +25,7 @@ Makina is unofficial Skype API for Windows. It implements by UI Automation that 
 
 ```
 $ jgem install bundler
-$ bundle install
+$ bundle install --path vendor/bundle
 $ .\bin\send-chat-message.bat
 Username: username
 Message: message
