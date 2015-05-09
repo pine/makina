@@ -11,12 +11,13 @@ module Makina
     class MainWindow
       attr_reader :skype_path, :screen, :ahk
 
-      def initialize(skype_path = nil)
-        Makina::SikulixLoader::load
+      def initialize(skype_path = nil, log = nil)
+        Makina::SikuliUtil::Loader::load
         
         @skype_path = skype_path || Makina::Skype::Path.find_exec_path
         @ahk = Makina::AHK::Skype.new
         @screen = Sikulix::Screen.new
+        @log = log || Logger.new(STDOUT)
       end
 
       def start
@@ -35,13 +36,13 @@ module Makina
       def wait_visible
         pattern = Sikulix::Pattern.new('main_window.png').exact
         pattern2 = Sikulix::Pattern.new('main_window2.png').exact
-
-        unless @screen.wait(pattern, 5)
-          @screen.wait(pattern2, 5)
-        end
+        
+        @log.info('Finding the Skype main window ...')
+        @screen.exists(pattern, 10) or @screen.wait(pattern2, 10)
       end
 
       def wait_active
+        @log.info('Waiting for the Skype main window to become active')
         @ahk.call('WaitActiveSkypeMainWindow')
       end
 
