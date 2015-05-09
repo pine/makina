@@ -17,14 +17,10 @@ module Makina
         @skype.wait_active
         wait_chat_focus
         
-        if chat_opened?
-          if block_given?
-            yield
-          else
-            true
-          end
+        if block_given?
+          yield chat_opened?
         else
-          false
+          chat_opened?
         end
       end
 
@@ -51,8 +47,7 @@ module Makina
       def chat_opened?
         skype_id = @users[0]
         real_skype_id = parse_skype_id
-
-        p skype_id, real_skype_id
+        
         skype_id == real_skype_id
       end
 
