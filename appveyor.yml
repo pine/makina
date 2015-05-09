@@ -20,13 +20,6 @@ install:
   - bundle install --path vendor/bundle
 
 
-after_install:
-  - jruby -v
-  - jgem -v
-  - where bundle
-  - bundle -v
-
-
 build: off
 
 
