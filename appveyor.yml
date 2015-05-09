@@ -1,0 +1,45 @@
+platform: x64
+
+branches:
+  except:
+    - gh-pages
+
+shallow_clone: true
+clone_depth: 5
+
+skip_commits:
+  message: /Created.*\.(png|jpg|jpeg|bmp|gif)/
+
+
+init:
+  - git config --global core.autocrlf false
+
+
+install:
+  - choco install jruby -version 1.7.18 -y
+
+# scripts to run before build
+before_build:
+ 
+# scripts to run after build
+after_build:
+ 
+# to run your custom scripts instead of automatic MSBuild
+build_script:
+ 
+# to disable automatic builds
+#build: off
+
+# scripts to run before tests
+before_test:
+  - echo script1
+  - ps: Write-Host "script1"
+ 
+# scripts to run after tests
+after_test:
+ 
+# to run your custom scripts instead of automatic tests
+test_script:
+  - echo This is my custom test script
+ 
+
