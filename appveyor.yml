@@ -18,30 +18,19 @@ init:
 install:
   - choco install jruby -version 1.7.18 -y
   - jgem install bundler
+  - bundle install --path vendor/bundle
 
-# scripts to run before build
-before_build:
- 
-# scripts to run after build
-after_build:
- 
-# to run your custom scripts instead of automatic MSBuild
-build_script:
-  - echo build
- 
-# to disable automatic builds
-#build: off
 
-# scripts to run before tests
-before_test:
-  - echo script1
-  - ps: Write-Host "script1"
- 
-# scripts to run after tests
-after_test:
- 
-# to run your custom scripts instead of automatic tests
+after_install:
+  - jruby -v
+  - jgem -v
+  - where bundle
+  - bundle -v
+
+
+build: off
+
+
 test_script:
-  - echo test
- 
+  - bundle exec rake spec
 
