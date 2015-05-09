@@ -9,6 +9,7 @@ module Makina
     def initialize(log = nil)
       @log = log || Logger.new(STDOUT)
       @q = Queue.new
+      @thread = nil
     end
     
     def push(message)
@@ -16,7 +17,9 @@ module Makina
     end
     
     def start
-      
+      @thread = Thread.new do
+        
+      end
     end
     
     def stop
