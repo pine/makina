@@ -15,7 +15,7 @@ Makina is unofficial Skype API for Windows. It implements by UI Automation that 
   - Windows 8.1
   - Skype 7.3
   - Java 1.8
-  - JRuby v1.7
+  - JRuby 1.7
 
 
 ## Usage
