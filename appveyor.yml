@@ -15,7 +15,7 @@ init:
 
 
 install:
-  - SET PATH=C:\tools\jruby-1.7.19\bin;%PATH%
+  - SET PATH=C:\jruby-1.7.18\bin;%PATH%
   - choco install jruby -version 1.7.18 -y
   - jgem install bundler
   - bundle install --path vendor/bundle
