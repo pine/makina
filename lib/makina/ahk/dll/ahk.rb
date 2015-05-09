@@ -11,7 +11,8 @@ module Makina
 
         # dlload 'AutoHotkey.dll'
         Proc.new {
-          dll_path = File.expand_path('../../../../../bin/AutoHotkey32.dll', __FILE__)
+          bin_path = File.expand_path('../../../../../bin/', __FILE__)
+          dll_path = File.join(bin_path, 'AutoHotkey32.dll')
 
           if DL::SIZEOF_VOIDP == 8 # if use 64 bit JVM
             dll_path.sub!(/\d+(?:.dll\z)/, '64')
