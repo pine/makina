@@ -2,6 +2,7 @@ Makina
 ------
 
 [![Build status](https://ci.appveyor.com/api/projects/status/mp4041wuhjwjakbp/branch/master?svg=true)](https://ci.appveyor.com/project/pine613/makina/branch/master)
+[![Code Climate](https://codeclimate.com/github/pine613/makina/badges/gpa.svg)](https://codeclimate.com/github/pine613/makina)
 [![Dependency Status](https://gemnasium.com/pine613/makina.svg)](https://gemnasium.com/pine613/makina)
 
 Makina is unofficial Skype API for Windows. It implements by UI Automation that uses image recognition (OpenCV) and optical character recognition (Tesseract OCR).
