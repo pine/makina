@@ -25,8 +25,14 @@ Makina is unofficial Skype API for Windows. It implements by UI Automation that 
 ### Sample CLI command
 
 ```
+$ jruby -v
+jruby 1.7.19 (1.9.3p551) 2015-01-29 20786bd on Java HotSpot(TM) 64-Bit Server VM 1.8.0_25-b18 +jit [Windows 8.1-amd64]
+$ jgem -v
+2.4.5
+
 $ jgem install bundler
 $ bundle install --path vendor/bundle
+
 $ .\bin\send-chat-message.bat
 Username: username
 Message: message
