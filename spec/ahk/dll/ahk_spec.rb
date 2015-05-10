@@ -34,7 +34,7 @@ describe Makina::AHK::DLL::AHK do
     end
     
     1.upto(11) do |i|
-      it "#[#{i}] is method" do
+      it "#[#{i}] is callable" do
         expect(Makina::AHK::DLL::AHK.ahkFunction[i]).to respond_to(:call)
       end
     end
