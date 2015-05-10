@@ -3,11 +3,11 @@
 
 require_relative './spec_helper'
 
-describe Makina::MessageQueue do
+describe Makina::Sender do
   describe '#initialize' do
     it 'create instance' do
       expect {
-        Makina::MessageQueue.new
+        Makina::Sender.new
       }.not_to raise_error
     end
   end
