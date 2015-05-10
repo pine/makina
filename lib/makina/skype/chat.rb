@@ -135,7 +135,8 @@ module Makina
         contact_name_pos = find_id_pos_in_contact_window
         contact_name_val_loc =
           Sikulix::Region.new(@skype.screen).setRect(*contact_name_pos)
-
+        
+        @log.info('Scanning Skype ID in the contact window')
         skype_id = contact_name_val_loc.text
         
         close_contact_window
