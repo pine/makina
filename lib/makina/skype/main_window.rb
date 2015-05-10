@@ -34,11 +34,11 @@ module Makina
       end
 
       def wait_visible
-        pattern = Sikulix::Pattern.new('main_window.png').exact
-        pattern2 = Sikulix::Pattern.new('main_window2.png').exact
-        
         @log.info('Finding the Skype main window ...')
-        @screen.exists(pattern, 10) or @screen.wait(pattern2, 10)
+        Makina::SikuliUtil::Finder.find_any(
+          @skype.screen,
+          ['main_window.png', 'main_window2.png'],
+          10)
       end
 
       def wait_active

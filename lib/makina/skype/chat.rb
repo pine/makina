@@ -44,6 +44,8 @@ module Makina
       private
       
       def wait_chat_focus
+        @log.info('Waiting until to focus on chat')
+        
         Makina::SikuliUtil::Finder.find_any(
           @skype.screen,
           ['chat_cursor.png', 'chat_cursor2.png'],
@@ -86,6 +88,7 @@ module Makina
       end
 
       def find_user_name
+        sleep 10
         star_left_pattern = Sikulix::Pattern.new('star_left.png').exact()
         star_range = @skype.screen.find(star_left_pattern).grow(500)
         star_loc = find_star(star_range)

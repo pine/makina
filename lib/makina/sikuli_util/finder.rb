@@ -12,14 +12,19 @@ module Makina
           Sikulix::Pattern.new(path).exact
         end
         
-        begin
-          timeout(sec) do
-            patterns.each do |p|
-              region.exists(p, 0)
+        catch(:exit) do
+          begin
+            timeout(sec) do
+              loop do
+                patterns.each do |p|
+                  match = region.exists(p, 0)
+                  throw :exit, match if match
+                end
+              end
             end
+          rescue Timeout::Error
+            throw :exit, nil
           end
-        rescue Timeout::Error
-          nil
         end
       end
     end
