@@ -8,5 +8,8 @@ module Makina
     def initialize(log = nil)
       @log = log || Logger.new(STDOUT)
     end
+    
+    def dispose
+    end
   end
 end

@@ -15,4 +15,17 @@ describe Makina::Sender do
       sender.dispose rescue nil
     end
   end
+  
+  describe '#dispose' do
+    it 'has method' do
+      sender = Makina::Sender.new
+      expect(sender).to respond_to(:dispose)
+      sender.dispose rescue nil
+    end
+    
+    it 'succeeds' do
+      sender = Makina::Sender.new
+      expect { sender.dispose }.not_to raise_error
+    end
+  end
 end
